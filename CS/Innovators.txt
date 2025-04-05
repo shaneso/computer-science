@@ -1,0 +1,10 @@
+John McCarthy - Founder of AI discipline, Inventor of LISP programming language
+Richard S. Sutton - Developer of Reinforcement Learning algorithms
+Richard P. Gabriel - Computer Scientist, Common Lisp
+Kurt Godel - Logician, Mathematician
+Donald Knuth - Father of Analysis of Algorithms, Author of The Art of Computer Programming
+John von Neumann - Invented the Von Neumann Architecture of Modern Computers
+Claude E. Shannon - Father of Information Theory, Mathematician and Computer Scientist
+Marvin Minsky - Researcher in Artificial Intelligence, Co-Founder of MIT AI Laboratory
+Niklaus Wirth - Designer of Pascal, Turing Award winner, Creator of Stepwise Refinement
+Richard Feynman - Quantum Mechanics, Pioneer of Quantum Computing and Nanotechnology
