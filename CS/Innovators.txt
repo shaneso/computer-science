@@ -8,3 +8,4 @@ Claude E. Shannon - Father of Information Theory, Mathematician and Computer Sci
 Marvin Minsky - Researcher in Artificial Intelligence, Co-Founder of MIT AI Laboratory
 Niklaus Wirth - Designer of Pascal, Turing Award winner, Creator of Stepwise Refinement
 Richard Feynman - Quantum Mechanics, Pioneer of Quantum Computing and Nanotechnology
+Edsger Dijkstra - Creator of Dijkstra's Algorithm, Turing Award Winner, Theoretical Physics and Computer Science
