@@ -9,3 +9,4 @@ Marvin Minsky - Researcher in Artificial Intelligence, Co-Founder of MIT AI Labo
 Niklaus Wirth - Designer of Pascal, Turing Award winner, Creator of Stepwise Refinement
 Richard Feynman - Quantum Mechanics, Pioneer of Quantum Computing and Nanotechnology
 Edsger Dijkstra - Creator of Dijkstra's Algorithm, Turing Award Winner, Theoretical Physics and Computer Science
+Peter Shor - Creator of Shor's Algorithm, Quantum Computing
