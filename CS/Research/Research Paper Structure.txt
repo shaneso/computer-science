@@ -1,0 +1,79 @@
+Research Paper Structure
+------------------------
+
+Reference
+---------
+How to write a great research paper
+by Simon Peyton Jones, Microsoft Research
+
+- Title (make it catchy but specific and clear)
+
+- Abstract (4 sentences; usually written last)
+  - State the problem
+  - Say why it's an interesting problem
+  - Say what your solution achieves
+  - Say what follows from your solution
+
+- Introduction (1 page)
+  - Describe the problem
+    - Concrete examples can be used to
+      help give shape to the problem
+  - State your contributions
+    - Write the list of contributions first
+    - The list of contributions drives the entire paper:
+      the paper substantiates the claims you have made
+    - Reader thinks "wow, if they really can deliver this,
+      that'll be exciting; I'd better read on"
+    - Use forward references from the narrative in intro
+
+- The problem (1 page)
+  - Introduce the problem and the idea using examples
+    and only then present the general case
+
+- My idea (2 pages)
+  - Explain it as if you were speaking to someone
+    using a whiteboard
+  - Conveying the intuition is primary, not secondary
+  - Once your reader has the intuition, he/she can follow
+    the details (but not vice versa)
+  - Even if he/she skips the details, he/she still takes
+    away something valuable
+
+- The details (5 pages; evidence)
+  - Your introduction makes claims
+  - Body of paper provides evidence to support each claim
+  - Check each claim in intro, identify evidence, and then
+    forward reference it from the claim
+  - Evidence can be: analysis and comparison, theorems,
+    measurements, case studies
+
+- Related work (1-2 pages)
+  - Compare your work with others
+  - Present your work's strengths and weaknesses
+
+- Conclusions and further work (0.5 pages)
+  - Be brief
+  - For future work, say what you intend to do
+
+- Help
+  - Have your paper read by as many friendly guinea pigs
+    as possible
+  - Experts are good
+  - Non-experts are also very good
+  - Each reader can only read your paper for the first time
+    once! So use them carefully
+  - Explain carefully what you want ("I got lost here" is
+    much more important than "Jarva is mis-spelt")
+
+- Expert help
+  - When you think you're done, send the draft to the
+    competition saying "could you help me ensure that I
+    describe your work fairly?"
+  - Often they will respond with helpful critique (they
+    are interested in the area)
+  - They are likely to be your referees anyway, so getting
+    their comments or criticism up front is good
+
+- Review
+  - Treat every review like gold dust
+  - Desire criticism and accept praise
