@@ -1,0 +1,93 @@
+alias cp='cp -i'
+alias mv='mv -i'
+alias du='du -kh'
+alias df='df -kh'
+alias ls='/bin/ls -AFh --color'
+alias e='emacs -nw'
+alias grep='grep --color=auto'
+alias gunzip='gunzip -v'
+alias gzip='gzip -v'
+alias tmuxlist='tmux list-sessions'
+alias tmuxresume='tmux attach'
+alias hi='history|tail -100'
+alias sq="squeue -u $USER --format='%.18i %.9P %.8j %.8u %.2t %.10L %.6D %.8C %.8R %.20m'"
+
+function rm() {
+    exclude=""
+    list=$@
+    for i in $list; do
+	if ! [ -e $i ]; then
+	    echo $i does not exist
+	    i=$(echo $i | sed "s|\*|\\\*|g") # convert any * to \* so that the following line works
+	    list=$(echo $list | sed "s|$i||g")
+	fi
+    done
+    arr=($list)
+    if [ ${#arr[@]} != 0 ]; then
+	ls -sk $list
+	echo -n "Remove? "
+	read answer
+	if [ "$answer" == y ]; then
+	    /bin/rm -rf $list
+	fi
+    fi
+}
+
+function pack() {
+    if [ $# == 0 ]; then
+        echo "No arguments specified. Usage: pack [--dar] dir1 [dir2 ...]"
+        return 1
+    fi
+    if [[ $1 == "--dar" ]]; then
+	shift
+	for arg in $@; do
+	    echo compressing $arg
+	    numfiles=$(find $arg -type f | wc -l)
+	    dar -s 10G -w -c ${arg/%\/} -g $arg && /bin/rm -rf $arg
+	    #dar -w -A monday -c tuesday -g test
+	    #dar -w -A tuesday -c wednesday -g test
+	    echo compressed $numfiles files
+	    ls -lh ${arg/%\/}*
+	done
+    else
+	for arg in $@; do
+    	    echo compressing $arg
+    	    numfiles=$(find $arg -type f | wc -l)
+    	    tar cvfz ${arg/%\/}.tar.gz $arg && /bin/rm -rf $arg
+    	    #bzip2 ${arg/%\/}.tar
+    	    echo compressed $numfiles files
+    	    ls -lh ${arg/%\/}.tar.gz
+	done
+    fi
+}
+
+function unpack() {
+    for arg in $@; do
+	len=${#arg}
+	if [ "${arg:$len-6:$len-1}" == "tar.gz" ]; then
+	    tar xvfz $arg && /bin/rm -rf $arg
+	elif [ "${arg:$len-6:$len-1}" == "tar.xz" ]; then
+	    tar xvf ${arg} && /bin/rm -rf ${arg}
+	elif [ "${arg:$len-7:$len-1}" == "tar.bz2" ]; then
+	    bunzip2 -v $arg
+	    tar xvf ${arg/%.bz2} && /bin/rm -rf ${arg/%.bz2}
+	elif [ "${arg:$len-4:$len-1}" == "gtgz" ]; then
+	    tar xvfz $arg && /bin/rm -rf $arg
+	elif [ "${arg:$len-3:$len-1}" == "tgz" ]; then
+	    gunzip -v $arg
+	    tar xvf ${arg/%.tgz}.tar && /bin/rm -rf ${arg/%.tgz}.tar
+	elif [ "${arg:$len-3:$len-1}" == "tar" ]; then
+	    tar xvf $arg && /bin/rm -rf $arg
+	elif [ "${arg:$len-3:$len-1}" == "zip" ]; then
+	    unzip $arg && /bin/rm -rf $arg
+	else
+	    echo unknown extension ... need to be one of: .tar.gz, .tar.xz, .tgz, .tar, .zip, .bz2
+	fi
+    done
+}
+
+function move() {
+    destination=${@:$#}   # last argument
+    objects=${*%${!#}}    # all arguments except the last
+    /bin/cp $objects $destination && /bin/rm $objects
+}
